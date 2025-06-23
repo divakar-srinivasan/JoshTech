@@ -314,3 +314,67 @@
   display: block;
   margin: 24px auto 0;
 }
+
+@media (max-width: 900px) {
+  .carousel-viewport {
+    width: 100vw;
+    min-width: 0;
+    padding: 0 8px;
+  }
+
+  .carousel-track {
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  .carousel-card {
+    width: 70vw;
+    min-width: 180px;
+    max-width: 320px;
+  }
+
+  .carousel-arrow {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-wrapper {
+    gap: 12px;
+    /* Add space between arrows and carousel */
+    margin-bottom: 10px;
+    padding: 0;
+  }
+
+  .carousel-viewport {
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+  }
+
+  .carousel-track {
+    gap: 2px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .carousel-card {
+    width: 80vw;
+    min-width: 100px;
+    max-width: 90vw;
+    padding: 4px 0;
+    margin: 0;
+  }
+
+  .carousel-arrow {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    padding: 0;
+    margin: 0 4px;
+    min-width: 0;
+    min-height: 0;
+  }
+}

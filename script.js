@@ -123,23 +123,36 @@ function renderCards() {
   document.getElementById("popularItems").innerHTML = popularData.map(createCarouselCard).join("");
 }
 
+let scrollPosition = 0;
+
 function openModal() {
+  scrollPosition = window.scrollY;
   document.getElementById("requestModal").style.display = "flex";
   document.body.classList.add("modal-open");
+  document.body.style.top = `-${scrollPosition}px`;
 }
+
 
 function closeModal() {
   document.getElementById("requestModal").style.display = "none";
   document.body.classList.remove("modal-open");
+  document.body.style.top = '';
+  setTimeout(() => {
+    window.scrollTo(0, scrollPosition);
+    scrollPosition = 0;
+  }, 10); 
+
   ["dishName", "dishType", "cuisine", "notes"].forEach(id => {
     const el = document.getElementById(id);
     if (el.tagName === "SELECT") el.selectedIndex = 0;
     else el.value = "";
     el.parentElement.classList.remove("invalid");
   });
+
   document.getElementById("dishNameError").textContent = "";
   document.getElementById("dishTypeError").textContent = "";
 }
+
 
 function submitRequest() {
   const dishName = document.getElementById("dishName");
@@ -289,6 +302,17 @@ function setupTrueInfiniteCarousel() {
       }
     }
   });
+
+  // Pause auto-slide on hover, resume on mouse leave
+  const carouselViewport = document.querySelector('.carousel-viewport');
+  if (carouselViewport) {
+    carouselViewport.addEventListener('mouseenter', () => {
+      if (autoSlideInterval) clearInterval(autoSlideInterval);
+    });
+    carouselViewport.addEventListener('mouseleave', () => {
+      resetAutoSlide();
+    });
+  }
 
   resetAutoSlide();
 }
