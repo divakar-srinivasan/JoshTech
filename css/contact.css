@@ -1,0 +1,154 @@
+.contact-section {
+  width: 100%;
+  background-color: #F7F8FA;
+  padding: 100px 129px;
+  box-sizing: border-box;
+}
+
+.contact-container {
+  max-width: 1181px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 103px;
+}
+
+.contact-left {
+  width: 617px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.contact-heading h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -0.012em;
+  color: #101115;
+  margin: 0;
+}
+
+.contact-heading p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: -0.012em;
+  color: #1B1C21;
+  margin-top: 5px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  gap: 20px;
+}
+
+.input-group input {
+  width: 300px;
+  height: 58px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 1px #00000040;
+  padding: 0 22px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #929292;
+  outline: none;
+}
+
+textarea {
+  width: 617px;
+  height: 164px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 1px #00000040;
+  padding: 19px 22px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #929292;
+  resize: none;
+  outline: none;
+}
+
+button[type="submit"] {
+  width: 210px;
+  height: 58px;
+  background-color: #1AC073;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.012em;
+  cursor: pointer;
+  padding: 19px 25px;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 13px;
+}
+
+.input-invalid {
+  border: 1px solid #e74c3c !important;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.contact-right img {
+  width: 503px;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .contact-section {
+    padding: 40px 8px;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .contact-left,
+  .contact-right {
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .contact-right img {
+    width: 90vw;
+    max-width: 350px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+
+  .input-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .input-group input,
+  textarea {
+    width: 100%;
+    min-width: 0;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    min-width: 0;
+  }
+}

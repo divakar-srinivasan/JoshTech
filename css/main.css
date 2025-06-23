@@ -1,0 +1,28 @@
+@import url('./reset.css');
+@import url('./header.css');
+@import url('./landing.css');
+@import url('./kitchen.css');
+@import url('./contact.css');
+@import url('./footer.css');
+@import url('./modal.css');
+@import url('./contact.css');
+@import url('./service.css');
+
+html,
+body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    font-family: 'Open Sans', Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .page-container {
+        padding: 0 8px;
+    }
+}
