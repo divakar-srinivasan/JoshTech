@@ -34,10 +34,6 @@ const kitchenData = [
   { name: "Cheese burst pizza", img: "assets/pizza/pizza2.jpg", rating: "4.5", time: "25-35 min", price: "₹123" },
   { name: "Veggie pizza", img: "assets/pizza/pizza3.jpg", rating: "4.6", time: "30-40 min", price: "₹170" },
   { name: "Classic pizza", img: "assets/pizza/pizza4.jpg", rating: "4.8", time: "20-30 min", price: "₹190" },
-  { name: "Paneer pizza", img: "assets/pizza/pizza5.jpg", rating: "4.9", time: "30-40 min", price: "₹210" },
-  { name: "Italian pizza", img: "assets/pizza/pizza6.jpg", rating: "4.4", time: "25-35 min", price: "₹160" },
-  { name: "Garlic pizza", img: "assets/pizza/pizza7.jpg", rating: "4.3", time: "30-40 min", price: "₹150" },
-  { name: "BBQ pizza", img: "assets/pizza/pizza8.jpg", rating: "4.5", time: "30-40 min", price: "₹200" }
 ];
 
 const popularData = [
@@ -140,7 +136,7 @@ function closeModal() {
   setTimeout(() => {
     window.scrollTo(0, scrollPosition);
     scrollPosition = 0;
-  }, 10); 
+  }, 10);
 
   ["dishName", "dishType", "cuisine", "notes"].forEach(id => {
     const el = document.getElementById(id);
@@ -244,33 +240,52 @@ function handleContactSubmit(event) {
 
 function setupTrueInfiniteCarousel() {
   const track = document.getElementById("popularItems");
-  const cardWidth = 277 + 20;
+  // Get the computed gap between cards
+  const style = window.getComputedStyle(track);
+  const gap = parseInt(style.gap || style.columnGap || 0, 10) || 0;
+  // Get the actual card width (first card)
+  let cardWidth = 277;
+  if (track.children.length > 0) {
+    cardWidth = track.children[0].offsetWidth;
+  }
+  const totalWidth = cardWidth + gap;
 
   if (track.children.length < 3) return;
 
   let autoSlideInterval;
+  let isSliding = false;
 
   function slideRight() {
-    track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    if (isSliding) return;
+    isSliding = true;
+    track.style.scrollBehavior = 'smooth';
+    track.scrollLeft = totalWidth;
+    track.addEventListener('transitionend', onTransitionEndRight, { once: true });
     setTimeout(() => {
-      const first = track.children[0];
-      track.appendChild(first);
-      track.style.scrollBehavior = 'auto';
-      track.scrollLeft -= cardWidth;
-      setTimeout(() => {
-        track.style.scrollBehavior = 'smooth';
-      }, 20);
-    }, 300);
+      onTransitionEndRight();
+    }, 400); // fallback in case transitionend doesn't fire
+  }
+
+  function onTransitionEndRight() {
+    track.style.scrollBehavior = 'auto';
+    track.appendChild(track.children[0]);
+    track.scrollLeft = 0;
+    isSliding = false;
   }
 
   function slideLeft() {
-    const last = track.children[track.children.length - 1];
-    track.insertBefore(last, track.children[0]);
+    if (isSliding) return;
+    isSliding = true;
     track.style.scrollBehavior = 'auto';
-    track.scrollLeft += cardWidth;
+    track.insertBefore(track.lastElementChild, track.firstElementChild);
+    track.scrollLeft = totalWidth;
     setTimeout(() => {
       track.style.scrollBehavior = 'smooth';
-      track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+      track.scrollLeft = 0;
+      setTimeout(() => {
+        track.style.scrollBehavior = 'auto';
+        isSliding = false;
+      }, 400);
     }, 20);
   }
 
@@ -279,19 +294,17 @@ function setupTrueInfiniteCarousel() {
     autoSlideInterval = setInterval(slideRight, 5000);
   }
 
-  document.querySelector(".carousel-arrow.right").onclick = () => {
+  document.querySelector(".arrow-right").onclick = () => {
     slideRight();
     resetAutoSlide();
   };
 
-  document.querySelector(".carousel-arrow.left").onclick = () => {
+  document.querySelector(".arrow-left").onclick = () => {
     slideLeft();
     resetAutoSlide();
   };
 
-  // Keyboard arrow key support
   document.addEventListener('keydown', function (e) {
-    // Only trigger if the carousel is in view
     if (document.activeElement === document.body || document.activeElement === track) {
       if (e.key === 'ArrowRight') {
         slideRight();
@@ -303,7 +316,6 @@ function setupTrueInfiniteCarousel() {
     }
   });
 
-  // Pause auto-slide on hover, resume on mouse leave
   const carouselViewport = document.querySelector('.carousel-viewport');
   if (carouselViewport) {
     carouselViewport.addEventListener('mouseenter', () => {
@@ -314,11 +326,10 @@ function setupTrueInfiniteCarousel() {
     });
   }
 
+  // Initialize scroll position to 0
+  track.scrollLeft = 0;
   resetAutoSlide();
 }
-
-renderCards();
-setupTrueInfiniteCarousel();
 
 // Event delegation for quantity buttons in kitchen and carousel cards
 function handleQuantityClick(e) {
@@ -447,3 +458,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+renderCards();
+setupTrueInfiniteCarousel();

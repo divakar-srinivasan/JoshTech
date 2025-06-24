@@ -9,11 +9,12 @@
 
 .navbar-container {
   width: 100%;
-  max-width: 1164px;
   height: 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-left: 110px;
+  margin-right: 130px;
   padding: 0 20px;
 }
 
@@ -23,17 +24,25 @@
   line-height: 20px;
   letter-spacing: -0.012em;
   color: white;
+  transform: translate(1.5px,-1.5px);
 }
 
 .nav-menu {
   display: flex;
   gap: 40px;
+  height: 20px;
+  width: 400px;
+  margin-left: 85px;
+  margin-bottom: 4px;
 }
 
 .nav-menu a {
   text-decoration: none;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
+  font-family: Roboto, sans-serif;
+  line-height: 20px;
+  letter-spacing: -1.2%;
 }
 
 .nav-icons {
@@ -41,6 +50,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+    transform: translateY(-2.5px);
 }
 
 .icon {

@@ -9,13 +9,16 @@
 }
 
 .section-title {
-  font-family: 'Roboto', sans-serif;
-  font-size: 40px;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 800;
-  color: #000000;
+  font-style: normal;
+  font-size: 40px;
   line-height: 24px;
-  letter-spacing: -0.012em;
+  letter-spacing: -0.48px;
+  transform: translate(-1px, 2px);
 }
+
 
 .popular-title {
   font-family: 'Roboto', sans-serif;
@@ -25,6 +28,7 @@
   line-height: 24px;
   letter-spacing: -0.012em;
   text-align: center;
+  transform: translate(-1px,-1px);
 }
 
 .offer-badge {
@@ -55,21 +59,25 @@
 }
 
 .kitchen-container {
-  width: 81%;
+  width: 84%;
   margin: 0 auto;
-  padding: 80px 16px;
+  padding: 70px 16px;
   box-sizing: border-box;
+
 }
 
 .our-kitchen-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(277px, 1fr));
-  gap: 30px;
-  margin-bottom: 80px;
+  grid-template-columns: repeat(auto-fit, minmax(267px, 1fr));
+  column-gap: 24px;
+  row-gap: 40px;
+  margin-bottom: 119px;
+  margin-top: 65px;
 }
 
 .kitchen-card {
-  width: 100%;
+  width: 277px;
+  height: 337px;
   position: relative;
   background: #FFFFFF;
   border-radius: 10px;
@@ -83,7 +91,22 @@
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
+.carousel-card {
+  width: 277px;
+  height: 337px;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
+.carousel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
 .card-img {
   width: 100%;
   height: 250px;
@@ -95,10 +118,10 @@
 .card-details {
   width: 277px;
   height: 87px;
-  padding: 20px 24px;
+  padding: 12px 14px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   box-shadow: 0px 0px 1px 0px rgba(187, 187, 187, 0.25);
@@ -117,6 +140,8 @@
   font-weight: 500;
   color: #1B1C21;
   margin: 0;
+  letter-spacing: -0.012em;
+  transform: translate(0.5px,-1px);
 }
 
 .card-info {
@@ -127,7 +152,7 @@
 
 .rating-time {
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
 .card-rating {
@@ -161,30 +186,31 @@
 }
 
 .add-to-cart {
-  width: 22px;
-  height: 25px;
-  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;;
 }
 
 .carousel-wrapper {
+  width: 1178px;
+  padding-top: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px;
-  margin-bottom: 32px;
+  gap: 51px;
 }
 
 .carousel-viewport {
-  width: calc((277px * 3) + (20px * 2));
+  width: calc((279px * 3) + (51px * 2));
   overflow: hidden;
 }
 
 .carousel-track {
   display: flex;
-  gap: 20px;
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 10px 0;
+  gap: 50px;
   scrollbar-width: none;
 }
 
@@ -192,29 +218,27 @@
   display: none;
 }
 
-.carousel-card {
-  width: 277px;
-  flex-shrink: 0;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
-}
-
-.carousel-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.carousel-arrow {
+.arrow-left {
   width: 71.5px;
   height: 71.5px;
-  border-radius: 50%;
-  background: #1AC073;
+  padding: 0;
   border: none;
-  font-size: 30px;
-  color: white;
-  cursor: pointer;
-  box-shadow: 4px 5px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  background: transparent;
+
+}
+.arrow-right {
+  width: 71.5px;
+  height: 71.5px;
+  padding: 0;
+  border: none;
+  border-radius: 50%; 
+  background-color: white; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+  box-shadow: none;
 }
 
 .card-pill {
@@ -259,11 +283,11 @@
 }
 
 .qty-btn {
-  width: 26px;
-  height: 25px;
+  width: 22px;
+  height: 22px;
   background-color: #F3BA00;
   border: none;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   color: white;
   cursor: pointer;
@@ -272,6 +296,7 @@
 .qty-btn.plus {
   border-radius: 5px;
   transition: border-radius 0.3s;
+  margin-right: 8px;
 }
 
 .qty-btn.plus.active {
@@ -286,7 +311,7 @@
 
 .qty-count {
   width: 41px;
-  height: 23px;
+  height: 22px;
   background-color: white;
   color: black;
   font-weight: 500;
@@ -304,6 +329,8 @@
 .request-dish-btn {
   background: #1AC073;
   color: white;
+  width: 210px;
+  height: 48px;
   padding: 14px 30px;
   font-size: 16px;
   border: none;
@@ -312,7 +339,11 @@
   justify-content: center;
   align-items: center;
   display: block;
-  margin: 24px auto 0;
+  margin-top: 76px;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+
 }
 
 @media (max-width: 900px) {

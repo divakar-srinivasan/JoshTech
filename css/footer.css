@@ -9,12 +9,13 @@
 }
 
 .footer-container {
-  max-width: 1164px;
+  max-width: 1220px;
   width: 100%;
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  position: relative;
+  top: -10px;
 }
 
 .footer-logo {
@@ -26,13 +27,16 @@
   color: #FFFFFF;
   width: 89px;
   height: 20px;
+  transform: translate(-1px,1.5px);
+
 }
 
 .footer-nav {
   display: flex;
-  gap: 40px;
+  gap: 42px;
   width: 399px;
   height: 20px;
+
 }
 
 .footer-nav a {
@@ -41,6 +45,8 @@
   color: #FFFFFF;
   text-decoration: none;
   line-height: 20px;
+  letter-spacing: 0.018em;
+
 }
 
 .footer-socials {
@@ -48,22 +54,20 @@
   gap: 13px;
   width: 68px;
   height: 26px;
+    transform: translateY(-1.5px);
+
 }
 
 .footer-socials a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 26px;
-  background: #BEBEBE;
-  border-radius: 5px;
+
 }
 
 .footer-socials img {
-  width: 18px;
-  height: 18px;
-  padding: 4px 5px;
+  width: 28px;
+  height: 26px;
   background-color: #FFFFFF;
   border-radius: 5px;
 }

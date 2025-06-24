@@ -10,10 +10,12 @@
 .hero-left {
   width: 534px;
   height: 317px;
-  padding-left: 132px;
+  padding-left: 133px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 30px;
+  position: relative;
+  margin-top: -60px;
 }
 
 .hero-left h1 {
@@ -22,10 +24,9 @@
   height: 147px;
   font-size: 70px;
   font-weight: 400;
-  line-height: 100%;
-  letter-spacing: 0;
   color: white;
   margin: 0;
+    transform: translateY(-3px);
 }
 
 .hero-left p {
@@ -43,19 +44,22 @@
 .search-container {
   width: 100%;
   max-width: 398px;
-  height: 58px;
+  height: 90px;
   background-color: white;
   border-radius: 10px;
   display: flex;
   overflow: hidden;
+  position: relative;
+  top: -1.1px;
 }
 
 .search-input {
   flex: 1;
   border: none;
-  padding: 19px 22px;
+  padding: 20px 22px;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
+  letter-spacing: -0.018em;
   line-height: 20px;
   color: #929292;
   outline: none;
@@ -75,10 +79,11 @@
   cursor: pointer;
 }
 
-.hero-right .hero-img {
+ .hero-img {
   width: 100%;
-  max-width: 521px;
-  height: auto;
+  height: 525px;
+  margin-top: 123px; 
+  margin-left: 95px;
 }
 
 @media (max-width: 900px) {

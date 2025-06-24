@@ -1,5 +1,6 @@
 .contact-section {
   width: 100%;
+  height: 605px;
   background-color: #F7F8FA;
   padding: 100px 129px;
   box-sizing: border-box;
@@ -10,14 +11,13 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  gap: 103px;
 }
 
 .contact-left {
   width: 617px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 
 .contact-heading h3 {
@@ -37,18 +37,18 @@
   line-height: 20px;
   letter-spacing: -0.012em;
   color: #1B1C21;
-  margin-top: 5px;
+  margin-top: 6px;
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 14px;
 }
 
 .input-group {
   display: flex;
-  gap: 20px;
+  gap: 14px;
 }
 
 .input-group input {
@@ -91,6 +91,7 @@ button[type="submit"] {
   letter-spacing: -0.012em;
   cursor: pointer;
   padding: 19px 25px;
+  transform: translate(-1px,-1px);
 }
 
 .error-message {
@@ -105,7 +106,7 @@ button[type="submit"] {
 
 .contact-right img {
   width: 503px;
-  height: auto;
+  height: 402px;
 }
 
 @media (max-width: 900px) {

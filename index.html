@@ -6,7 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JTGeats</title>
   <link rel="stylesheet" href="./css/main.css" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Squada+One&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -47,9 +51,7 @@
         <button class="search-button">Search</button>
       </div>
     </div>
-    <div class="hero-right">
-      <img src="assets/icons/cuate.svg" alt="Hero Cooking Image" class="hero-img" />
-    </div>
+    <img src="assets/icons/cuate.svg" alt="Hero Cooking Image" class="hero-img" />
   </section>
   <section class="kitchen-section" id="about">
     <div class="kitchen-container">
@@ -57,11 +59,11 @@
       <div class="our-kitchen-cards" id="kitchenCards"></div>
       <h2 class="popular-title" id="menu">Popular Items</h2>
       <div class="carousel-wrapper">
-        <button class="carousel-arrow left">&#9664;</button>
+        <button class="arrow-left"><img src="assets/icons/Arrow-left.svg" alt="Left"></button>
         <div class="carousel-viewport">
           <div class="carousel-track" id="popularItems"></div>
         </div>
-        <button class="carousel-arrow right">&#9654;</button>
+        <button class="arrow-right"><img src="assets/icons/Arrow-right.svg" alt="Right"></button>
       </div>
       <button class="request-dish-btn" onclick="openModal()">Request a Dish</button>
     </div>
@@ -101,11 +103,13 @@
   <section class="service-section">
     <div class="service-container">
       <div class="text-content" id="blog">
-        <h2>We are providing best<br>home cooked food delivery service.</h2>
-        <p>
-          Away from home and craving the tasty homemade recipes?<br />
-          Choose from a selection of our delicious home cooked dishes
+        <h2>We are providing best<br><span>home cooked food delivery service.</span></h2>
+        <div class="para">
+          <p >Away from home and craving the tasty homemade recipes?
         </p>
+        <p>Choose from a selection of our delicious home cooked dishes
+        </p>
+        </div>
       </div>
       <div class="video-wrapper">
         <div class="video-card">
@@ -113,9 +117,7 @@
             <source src="assets/video/food.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div id="play-btn" class="play-button">
-            <div class="play-icon">&#9658;</div>
-          </div>
+          <img id="play-btn" class="play-button" src="assets/icons/Arrow-right.svg" alt="Right">
         </div>
       </div>
     </div>
@@ -171,5 +173,4 @@
   </footer>
   <script src="script.js"></script>
 </body>
-
 </html>

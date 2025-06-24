@@ -1,6 +1,6 @@
 .service-section {
   position: relative;
-  height: 860px;
+  height: 871px;
   background: #F9F9F9;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,8 @@
 
 .service-container {
   width: 1050px;
-  padding-top: 80px;
+  height: 830px;
+  padding-top: 60px;
   padding-bottom: 80px;
   display: flex;
   flex-direction: column;
@@ -20,8 +21,13 @@
 
 .text-content {
   width: 864px;
+  height: 164px;
   text-align: center;
-  margin: 0 auto;
+  margin-left: 86px;
+  margin-bottom: 30px;
+}
+.text-content span{
+  margin-left: 12px;
 }
 
 .text-content h2 {
@@ -34,13 +40,14 @@
   margin-bottom: 10px;
 }
 
-.text-content p {
+.para p {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 500;
-  line-height: 20px;
+  line-height: 0.45;
   letter-spacing: 0.2px;
   color: #737373;
+  transform: translate(5px,1px);
 }
 
 .video-wrapper {
@@ -48,7 +55,6 @@
   height: 442px;
   margin: 0 auto;
   position: relative;
-  border-radius: 5px;
   border: 1px solid #DEDEDE;
   overflow: hidden;
 }
@@ -62,7 +68,6 @@
 .play-button {
   width: 97.5px;
   height: 97.5px;
-  background: #1AC073;
   border-radius: 50%;
   position: absolute;
   top: 172.75px;
@@ -71,14 +76,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  box-shadow: 4px 5px 20px rgba(0, 0, 0, 0.2);
   transition: opacity 0.3s;
-}
-
-.play-icon {
-  font-size: 50px;
-  color: white;
-  margin-left: 4px;
 }
 
 .service-bg {
