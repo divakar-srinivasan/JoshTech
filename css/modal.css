@@ -200,6 +200,19 @@ body.modal-open {
   }
 }
 
+@media (max-width: 400px) {
+  .modal-content {
+    padding: 8px 2vw;
+    border-radius: 6px;
+    font-size: 13px;
+  }
+
+  .modal-actions button {
+    font-size: 13px;
+    padding: 8px 0;
+  }
+}
+
 .error-message {
   color: #e74c3c;
   font-size: 13px;

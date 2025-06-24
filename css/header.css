@@ -24,7 +24,7 @@
   line-height: 20px;
   letter-spacing: -0.012em;
   color: white;
-  transform: translate(1.5px,-1.5px);
+  transform: translate(1.5px, -1.5px);
 }
 
 .nav-menu {
@@ -50,7 +50,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-    transform: translateY(-2.5px);
+  transform: translateY(-2.5px);
 }
 
 .icon {
@@ -182,6 +182,35 @@
     background: linear-gradient(90deg, #e67e22 0%, #fff 100%);
     opacity: 0.08;
     border-top-left-radius: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    height: 56px;
+  }
+
+  .navbar-container {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 4px;
+    gap: 8px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .nav-menu {
+    gap: 8px;
+    width: 100%;
+    margin-left: 0;
+    font-size: 15px;
+  }
+
+  .nav-icons {
+    width: auto;
+    gap: 8px;
   }
 }
 

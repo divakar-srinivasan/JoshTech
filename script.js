@@ -24,25 +24,25 @@ video.addEventListener("click", () => {
 const kitchenData = [
   { name: "Home made pizza", img: "assets/pizza/pizza1.jpg", rating: "4.7", time: "30-40 min", price: "₹190", offer: "50%" },
   { name: "Cheese burst pizza", img: "assets/pizza/pizza2.jpg", rating: "4.5", time: "25-35 min", price: "₹123" },
-  { name: "Veggie pizza", img: "assets/pizza/pizza3.jpg", rating: "4.6", time: "30-40 min", price: "₹170" },
+  { name: "Veggie pizza", img: "assets/pizza/pizza3.jpg", rating: "4.6", time: "30-40 min", price: "₹170", offer: "20%" },
   { name: "Classic pizza", img: "assets/pizza/pizza4.jpg", rating: "4.8", time: "20-30 min", price: "₹190" },
-  { name: "Paneer pizza", img: "assets/pizza/pizza5.jpg", rating: "4.9", time: "30-40 min", price: "₹210" },
+  { name: "Paneer pizza", img: "assets/pizza/pizza5.jpg", rating: "4.9", time: "30-40 min", price: "₹210", offer: "50%" },
   { name: "Italian pizza", img: "assets/pizza/pizza6.jpg", rating: "4.4", time: "25-35 min", price: "₹160" },
-  { name: "Garlic pizza", img: "assets/pizza/pizza7.jpg", rating: "4.3", time: "30-40 min", price: "₹150" },
-  { name: "BBQ pizza", img: "assets/pizza/pizza8.jpg", rating: "4.5", time: "30-40 min", price: "₹200" },
-  { name: "Home made pizza", img: "assets/pizza/pizza1.jpg", rating: "4.7", time: "30-40 min", price: "₹190" },
+  { name: "Garlic pizza", img: "assets/pizza/pizza7.jpg", rating: "4.3", time: "30-40 min", price: "₹150", offer: "20%" },
+  { name: "BBQ pizza", img: "assets/pizza/pizza9.jpg", rating: "4.5", time: "30-40 min", price: "₹200", offer: "50%" },
+  { name: "Home made pizza", img: "assets/pizza/pizza1.jpg", rating: "4.7", time: "30-40 min", price: "₹190", offer: "50%" },
   { name: "Cheese burst pizza", img: "assets/pizza/pizza2.jpg", rating: "4.5", time: "25-35 min", price: "₹123" },
-  { name: "Veggie pizza", img: "assets/pizza/pizza3.jpg", rating: "4.6", time: "30-40 min", price: "₹170" },
+  { name: "Veggie pizza", img: "assets/pizza/pizza3.jpg", rating: "4.6", time: "30-40 min", price: "₹170", offer: "20%" },
   { name: "Classic pizza", img: "assets/pizza/pizza4.jpg", rating: "4.8", time: "20-30 min", price: "₹190" },
 ];
 
 const popularData = [
   { name: "Tandoori Chicken", img: "assets/pizza/pizza1.jpg", rating: "4.3", time: "15-20 min", price: "₹184" },
-  { name: "Chili Chicken", img: "assets/pizza/pizza2.jpg", rating: "4.1", time: "24-34 min", price: "₹116" },
+  { name: "Chili Chicken", img: "assets/pizza/pizza2.jpg", rating: "4.1", time: "24-34 min", price: "₹116", offer: "20%" },
   { name: "Grilled Chicken", img: "assets/pizza/pizza3.jpg", rating: "4.5", time: "20-30 min", price: "₹200" },
-  { name: "Paneer pizza", img: "assets/pizza/pizza4.jpg", rating: "4.9", time: "30-40 min", price: "₹210" },
+  { name: "Paneer pizza", img: "assets/pizza/pizza4.jpg", rating: "4.9", time: "30-40 min", price: "₹210", offer: "50%" },
   { name: "Italian pizza", img: "assets/pizza/pizza5.jpg", rating: "4.4", time: "25-35 min", price: "₹160" },
-  { name: "Garlic pizza", img: "assets/pizza/pizza6.jpg", rating: "4.3", time: "30-40 min", price: "₹150" },
+  { name: "Garlic pizza", img: "assets/pizza/pizza6.jpg", rating: "4.3", time: "30-40 min", price: "₹150", offer: "20%" },
   { name: "BBQ pizza", img: "assets/pizza/pizza9.jpg", rating: "4.5", time: "30-40 min", price: "₹200" }
 ];
 
@@ -79,9 +79,10 @@ function createKitchenCard({ name, img, rating, time, price, offer }) {
   `;
 }
 
-function createCarouselCard({ name, img, rating, time, price }) {
+function createCarouselCard({ name, img, rating, time, price, offer }) {
   return `
 <div class="carousel-card">
+  ${offer ? `<div class="offer-badge">${offer}</div>` : ''}
   <img src="${img}" class="card-img" alt="${name}" />
   <div class="card-details">
     <div class="card-header">
@@ -149,7 +150,6 @@ function closeModal() {
   document.getElementById("dishTypeError").textContent = "";
 }
 
-
 function submitRequest() {
   const dishName = document.getElementById("dishName");
   const dishType = document.getElementById("dishType");
@@ -191,7 +191,6 @@ function handleContactSubmit(event) {
   const messageError = document.getElementById("messageError");
   let isValid = true;
 
-  // Name
   if (!name.value.trim()) {
     name.classList.add("input-invalid");
     nameError.textContent = "Name is required.";
@@ -201,7 +200,6 @@ function handleContactSubmit(event) {
     nameError.textContent = "";
   }
 
-  // Email
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!email.value.trim()) {
     email.classList.add("input-invalid");
@@ -216,7 +214,6 @@ function handleContactSubmit(event) {
     emailError.textContent = "";
   }
 
-  // Message
   if (!message.value.trim()) {
     message.classList.add("input-invalid");
     messageError.textContent = "Message is required.";
@@ -263,7 +260,7 @@ function setupTrueInfiniteCarousel() {
     track.addEventListener('transitionend', onTransitionEndRight, { once: true });
     setTimeout(() => {
       onTransitionEndRight();
-    }, 400); // fallback in case transitionend doesn't fire
+    }, 400);
   }
 
   function onTransitionEndRight() {
@@ -326,12 +323,10 @@ function setupTrueInfiniteCarousel() {
     });
   }
 
-  // Initialize scroll position to 0
   track.scrollLeft = 0;
   resetAutoSlide();
 }
 
-// Event delegation for quantity buttons in kitchen and carousel cards
 function handleQuantityClick(e) {
   const btn = e.target.closest('button.qty-btn');
   if (!btn) return;
@@ -379,13 +374,11 @@ function decreaseQty(button) {
   }
 }
 
-// Hamburger toggles side nav open/close, no X button
 document.addEventListener('DOMContentLoaded', function () {
   const hamburger = document.getElementById('hamburgerMenu');
   const sideNav = document.getElementById('sideNav');
   let sideNavOpen = false;
 
-  // Add nav links if not present (for safety)
   if (sideNav && sideNav.children.length === 0) {
     sideNav.innerHTML = `
       <a href="#home">Home</a>
@@ -396,7 +389,6 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
   }
 
-  // Create overlay for outside click
   let overlay = document.getElementById('sideNavOverlay');
   if (!overlay) {
     overlay = document.createElement('div');
@@ -446,13 +438,11 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
     overlay.addEventListener('click', closeSideNav);
-    // Close on ESC
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && sideNavOpen) {
         closeSideNav();
       }
     });
-    // Close on link click
     sideNav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', closeSideNav);
     });
